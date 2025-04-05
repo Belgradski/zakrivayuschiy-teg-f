@@ -13,4 +13,36 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font-family), sans-serif;
+
+}
+
+.header {
+  margin-block: 100px;
+  border: 2px solid #000;
+  display: flex;
+  inline-size: 100%;
+  min-block-size: 327px;
+  justify-content: center;
+}
+
+.header_logo {
+  font-family: var(--accent-font-family), sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header_title {
+  font-family: inherit;
+  font-size: clamp(3.063rem, 1.909rem + 4.923vw, 4.063rem);
+  text-transform: inherit;
+}
+
+.header_caption {
+  font-family: inherit;
+  font-size: clamp(0.875rem, 0.226rem + 2.769vw, 1.438rem);
 }
