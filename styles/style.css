@@ -10,30 +10,40 @@
 
 */
 
+.modal::backdrop {
+  opacity: 0.75;
+  background-color: var(--text-color, #000);
+}
+
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font-family), sans-serif;
-
+  font-variation-settings: "wght" var(--main-font-weight, 400);
 }
 
 .header {
   margin-block: 100px;
-  border: 2px solid #000;
-  display: flex;
-  inline-size: 100%;
-  min-block-size: 327px;
+  border: 2px solid var(--text-color, #000);
+  display: grid;
   justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  max-inline-size: 696px;
+  grid-template-rows: minmax(327px, 368px);
+  background-color: var(--page-background-color, #fff);
 }
 
 .header_logo {
   font-family: var(--accent-font-family), sans-serif;
   text-transform: uppercase;
-  display: flex;
+  display: grid;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-items: center;
+  block-size: min-content;
+  
   gap: 20px;
+  
 }
 
 .header_title {
@@ -45,4 +55,266 @@
 .header_caption {
   font-family: inherit;
   font-size: clamp(0.875rem, 0.226rem + 2.769vw, 1.438rem);
+}
+.card_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 50px;
+  justify-items: center;
+
+}
+
+.card {
+  inline-size: 100%;
+  border-inline-start: 2px solid var(--text-color, #000);
+  border-inline-end: 2px solid var(--text-color, #000);
+  border-block-end: 2px solid var(--text-color, #000);
+  margin-inline: auto;
+  max-inline-size: 696px;
+}
+
+.card_title {
+  font-family: inherit;
+  font-variation-settings: "wght" var(--heading-font-weight, 700);
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0;
+  padding-inline: 10px;
+  padding-block-start: 3.5px;
+  padding-block-end: 5.5px;
+  border-block-start: 2px solid var(--text-color, #000);
+  border-block-end: 2px solid var(--text-color, #000);
+  background-color: var(--page-background-color, #fff);
+}
+
+.padding-correct {
+  padding-block-start: 4px;
+  padding-block-end: 6px;
+}
+
+.card_image {
+  position: relative;
+  display: flex;
+  inline-size: 100%;
+  max-block-size: 700px;
+  border-block-end: 2px solid var(--text-color, #000);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card_image-picture {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  
+
+}
+
+.card_image-text {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  z-index: 1;
+  font-family: var(--accent-font-family), sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: 0.5;
+  text-shadow: 0 0 1px var(--page-background-color, #fff);
+  mix-blend-mode: hard-light;
+}
+
+@supports (-webkit-text-stroke: 1px var(--page-background-color)) or (text-stroke: 1px var(--page-background-color)) {
+  .card_image-text {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--page-background-color);
+    text-stroke: 1px var(--page-background-color);
+  }
+}
+
+.card_content {
+  padding: 25px 25px 0 25px;
+  display: flex;
+  gap: 27px;
+  flex-direction: column;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0;
+}
+
+.card_footer {
+  display: flex;
+  justify-content: end;
+  padding-inline-end: 25px;
+  padding-block-start: 25px;
+  padding-block-end: 25px;
+  gap: 7px;
+}
+
+.card__like-button {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--text-color, #000);
+  min-inline-size: 130px;
+  min-block-size: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button__text {
+  font-family: var(--accent-font-family), sans-serif;
+  line-height: 90%;
+  font-size: 14px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
+  padding-block-start: 5px;
+  cursor: pointer;
+}
+
+.button-save {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--text-color, #000);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 103px;
+  min-block-size: 55px;
+  min-inline-size: 335px;
+  
+  
+}
+
+.button-icon {
+  max-block-size: 28px;
+  max-inline-size: 28px;
+}
+
+.button-text {
+  font-family: var(--accent-font-family), sans-serif;;
+  font-size: 14px;
+}
+
+.modal {
+  max-inline-size: 341px;
+  padding: 30px;
+}
+
+.modal[open] {
+
+}
+
+
+
+.modal_content {
+  color: var(--text-color, #000);
+  background-color: var(--page-background-color, #fff);
+  font-family: var(--accent-font-family), sans-serif;
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.modal_icon {
+  block-size: 39px;
+  inline-size: 39px;
+  flex-shrink: 0;
+}
+
+.modal_button {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--text-color, #000);
+  cursor: pointer;
+  font-family: var(--accent-font-family), sans-serif;
+  inline-size: 100%;
+  min-block-size: 38px;
+  font-size: 14px;
+  text-transform: uppercase;
+  
+}
+
+.modal_wrapper {
+  inline-size: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-block-start: 30px;
+  
+}
+
+.modal_text {
+  text-transform: uppercase;
+  line-height: 150%;
+  font-size: 14px;
+}
+
+
+
+@media (width <= 375px) {
+  .button-save {
+    flex-direction: column;
+    min-block-size: 84px;
+    min-inline-size: 306px;
+    margin-bottom: 100px;
+  }
+
+  .card_image-text {
+    inset-block-start: 20px;
+    inset-inline-end: 10px;
+  }
+
+  .modal {
+    padding: 30px 42px;
+  }
+
+}
+
+.filter-sepia {
+  filter: sepia(50%);
+}
+
+.filter-contrast {
+  filter: contrast(120%)
+}
+
+.filter-invert {
+  filter: invert(20%);
+}
+
+.filter-grayscale {
+  filter: grayscale(50%);
+}
+
+.filter-opacity {
+  filter: opacity(90%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(20deg);
+}
+
+.filter-brightness {
+  filter: brightness(0.6);
+}
+
+.filter-saturate {
+  filter: saturate(90%);
+}
+
+.filter-blur {
+  filter: blur(1px);
 }
