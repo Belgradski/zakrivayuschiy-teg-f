@@ -43,10 +43,8 @@
   display: grid;
   justify-content: center;
   justify-items: center;
-  block-size: min-content;
-  
+  block-size: min-content; 
   gap: 20px;
-  
 }
 
 .header_title {
@@ -65,7 +63,6 @@
   grid-template-rows: 1fr;
   gap: 50px;
   justify-items: center;
-
 }
 
 .card {
@@ -114,8 +111,6 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
-  
-
 }
 
 .card_image-text {
@@ -131,7 +126,8 @@
   mix-blend-mode: hard-light;
 }
 
-@supports (-webkit-text-stroke: 1px var(--page-background-color)) or (text-stroke: 1px var(--page-background-color)) {
+@supports (-webkit-text-stroke: 1px var(--page-background-color)) or
+  (text-stroke: 1px var(--page-background-color)) {
   .card_image-text {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--page-background-color);
@@ -171,7 +167,6 @@
   align-items: center;
   cursor: pointer;
   color: var(--page-background-color, #fff);
-  
 }
 
 .button__text {
@@ -185,7 +180,7 @@
 }
 
 .button::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--page-button-hover, #000);
@@ -194,7 +189,6 @@
   transition: transform 0.5s ease-in-out;
   inline-size: 100%;
   block-size: 100%;
-  
 }
 
 .button:hover::after {
@@ -230,7 +224,7 @@
   appearance: none;
   position: relative;
   background-color: #fff;
-  
+
   color: #000;
   border: 2px solid var(--text-color, #000);
   cursor: pointer;
@@ -243,7 +237,6 @@
   min-inline-size: 335px;
   z-index: 1;
   flex-shrink: 0;
-  
 }
 
 .button-icon {
@@ -275,7 +268,6 @@
   block-size: 39px;
   inline-size: 39px;
   flex-shrink: 0;
-  
 }
 
 .modal_button {
@@ -289,7 +281,6 @@
   font-size: 14px;
   text-transform: uppercase;
   position: relative;
-  
 }
 
 .modal_wrapper {
@@ -298,7 +289,6 @@
   align-items: center;
   display: flex;
   padding-block-start: 30px;
-  
 }
 
 .modal_text {
@@ -306,8 +296,6 @@
   line-height: 150%;
   font-size: 14px;
 }
-
-
 
 @media (width <= 375px) {
   .button-save {
@@ -326,6 +314,8 @@
     padding: 30px 42px;
   }
 
+  .button-icon {
+    width: 28px;
 }
 
 .filter-sepia {
@@ -333,7 +323,7 @@
 }
 
 .filter-contrast {
-  filter: contrast(120%)
+  filter: contrast(120%);
 }
 
 .filter-invert {
