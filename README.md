@@ -1,1 +1,1 @@
-https://belgradski.github.io/zakrivayuschiy-teg-f/
+https://github.com/Belgradski/zakrivayuschiy-teg-f.git
