@@ -26,7 +26,7 @@
 }
 
 .header {
-  margin-block: 100px;
+  margin-block: 99px;
   border: 2px solid var(--text-color, #000);
   display: grid;
   justify-content: center;
@@ -34,6 +34,8 @@
   margin-inline: auto;
   max-inline-size: 696px;
   grid-template-rows: minmax(327px, 368px);
+ 
+  
   background-color: var(--page-background-color, #fff);
 }
 
@@ -59,20 +61,24 @@
 }
 .card_list {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   gap: 50px;
+  grid-auto-columns: 1fr;
   justify-items: center;
+
 }
 
 .card {
   inline-size: 100%;
-  border-inline-start: 2px solid var(--text-color, #000);
-  border-inline-end: 2px solid var(--text-color, #000);
-  border-block-end: 2px solid var(--text-color, #000);
+  border: 2px solid var(--text-color, #000);
+  
   margin-inline: auto;
   max-inline-size: 696px;
   background-color: var(--page-background-color, #fff);
+  min-block-size: 959px;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+
 }
 
 .card_title {
@@ -82,23 +88,24 @@
   line-height: 22px;
   letter-spacing: 0;
   padding-inline: 10px;
-  padding-block-start: 3.5px;
+  
   padding-block-end: 5.5px;
-  border-block-start: 2px solid var(--text-color, #000);
   border-block-end: 2px solid var(--text-color, #000);
+  
   background-color: var(--page-background-color, #fff);
 }
 
-.padding-correct {
-  padding-block-start: 4px;
-  padding-block-end: 6px;
-}
+.margin-correct {
+  margin-block-start: 20px;
+
+} 
 
 .card_image {
   position: relative;
   display: flex;
   inline-size: 100%;
-  max-block-size: 700px;
+  block-size: 700px;
+  
   border-block-end: 2px solid var(--text-color, #000);
   object-fit: cover;
   object-position: center;
@@ -115,7 +122,7 @@
 
 .card_image-text {
   position: absolute;
-  inset-block-start: 25px;
+  inset-block-start: 30px;
   inset-inline-end: 25px;
   z-index: 1;
   font-family: var(--accent-font-family), sans-serif;
@@ -150,9 +157,9 @@
   display: flex;
   justify-content: end;
   padding-inline-end: 25px;
-  padding-block-start: 25px;
-  padding-block-end: 25px;
-  gap: 7px;
+  padding-block-start: 22px;
+  padding-block-end: 18px;
+  align-items: center;
 }
 
 .card__like-button {
@@ -161,7 +168,7 @@
   background-color: transparent;
   border: 2px solid var(--text-color, #000);
   min-inline-size: 130px;
-  min-block-size: 38px;
+  max-block-size: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,6 +184,10 @@
   color: var(--page-background-color, #fff);
   position: relative;
   z-index: 10;
+}
+
+.padding-correct {
+  padding: 10px;
 }
 
 .button::after {
@@ -207,6 +218,7 @@
   background-color: transparent;
   border: none;
   padding-block-start: 5px;
+  padding-inline-end: 2px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -224,7 +236,6 @@
   appearance: none;
   position: relative;
   background-color: #fff;
-
   color: #000;
   border: 2px solid var(--text-color, #000);
   cursor: pointer;
@@ -236,7 +247,6 @@
   min-block-size: 55px;
   min-inline-size: 335px;
   z-index: 1;
-  flex-shrink: 0;
 }
 
 .button-icon {
@@ -297,27 +307,6 @@
   font-size: 14px;
 }
 
-@media (width <= 375px) {
-  .button-save {
-    flex-direction: column;
-    min-block-size: 84px;
-    min-inline-size: 306px;
-    margin-bottom: 100px;
-  }
-
-  .card_image-text {
-    inset-block-start: 20px;
-    inset-inline-end: 10px;
-  }
-
-  .modal {
-    padding: 30px 42px;
-  }
-
-  .button-icon {
-    width: 28px;
-}
-
 .filter-sepia {
   filter: sepia(50%);
 }
@@ -352,4 +341,26 @@
 
 .filter-blur {
   filter: blur(1px);
+}
+
+
+@media (width <= 375px) {
+  .button-save {
+    flex-direction: column;
+    min-block-size: 84px;
+    min-inline-size: 306px;
+    margin-bottom: 100px;
+  }
+
+  .card_image-text {
+    inset-block-start: 20px;
+    inset-inline-end: 10px;
+  }
+
+  .modal {
+    padding: 30px 42px;
+  }
+
+  .button-icon {
+    width: 28px;
 }
