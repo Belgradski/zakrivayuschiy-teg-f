@@ -40,8 +40,8 @@
   text-transform: uppercase;
   gap: 20px;
   background-color: var(--page-background-color, #fff);
-  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8rem) 0 clamp(7.5rem, 7.1479rem + 1.5023vw, 8rem);
-  
+  padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8rem) 0
+    clamp(7.5rem, 7.1479rem + 1.5023vw, 8rem);
 }
 
 .wrapper {
@@ -66,13 +66,11 @@
   justify-items: center;
 }
 
-
 .card_list {
   display: grid;
   gap: 50px;
   grid-auto-columns: 1fr;
   justify-items: center;
-
 }
 
 .card {
@@ -83,8 +81,6 @@
   display: flex;
   flex-direction: column;
   block-size: 100%;
-  
-
 }
 
 .card_title {
@@ -93,15 +89,15 @@
   font-size: 18px;
   line-height: normal;
   letter-spacing: 0;
-  padding: 5px 10px ;
+  padding: 5px 10px;
   border-block-end: 2px solid var(--text-color, #000);
-  
+
   background-color: var(--page-background-color, #fff);
 }
 
-.margin-correct {
-  margin-block-start: 22px;
-} 
+.margin-corrects {
+  margin-block-end: 10px;
+}
 
 .card_image {
   position: relative;
@@ -128,7 +124,6 @@
   opacity: 0.5;
   text-shadow: 0 0 1px var(--page-background-color, #fff);
   mix-blend-mode: hard-light;
-  
 }
 
 @supports (-webkit-text-stroke: 1px var(--page-background-color)) or
@@ -141,7 +136,7 @@
 }
 
 .card_content {
-  padding: 30px 30px 0 25px;
+  padding: 30px 25px 0 25px;
   display: flex;
   gap: 27px;
   flex-direction: column;
@@ -149,15 +144,14 @@
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0;
-  
 }
 
 .card_footer {
   display: flex;
   justify-content: end;
+  padding-block-start: 25px;
   padding-inline-end: 25px;
-  padding-block-start: 20px;
-  padding-block-end: 18px;
+  padding-block-end: 25px;
   align-items: center;
 }
 
@@ -173,6 +167,7 @@
   align-items: center;
   cursor: pointer;
   color: var(--page-background-color, #fff);
+  padding-block: 12.5px;
 }
 
 .button__text {
@@ -183,10 +178,6 @@
   color: var(--page-background-color, #fff);
   position: relative;
   z-index: 10;
-}
-
-.padding-correct {
-  padding: 10px;
 }
 
 .button::after {
@@ -343,7 +334,6 @@
   filter: blur(1px);
 }
 
-
 @media (width <= 375px) {
   .button-save {
     flex-direction: column;
@@ -363,12 +353,9 @@
 
   .overlay {
     min-block-size: 327px;
-    
   }
 
   .button-icon {
     width: 28px;
-    
-}
-
+  }
 }
