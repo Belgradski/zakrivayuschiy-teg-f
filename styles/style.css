@@ -10,17 +10,12 @@
 
 */
 
-.modal::backdrop {
-  opacity: 0.75;
-  background-color: var(--text-color, #000);
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font-family), sans-serif;
   font-variation-settings: "wght" var(--main-font-weight, 400);
-  background: var(--page-background);
+  background: var(--page-background, #d3d3d3);
   background-size: cover;
   background-attachment: fixed;
   padding-block-start: 100px;
@@ -71,16 +66,16 @@
   gap: 50px;
   grid-auto-columns: 1fr;
   justify-items: center;
+  margin-block-end: 50px;
 }
 
 .card {
-  border: 2px solid var(--text-color, #000);
   margin-inline: auto;
-  max-inline-size: 696px;
   background-color: var(--page-background-color, #fff);
   display: flex;
   flex-direction: column;
   block-size: 100%;
+  border: 2px solid var(--text-color, #000);
 }
 
 .card_title {
@@ -91,18 +86,12 @@
   letter-spacing: 0;
   padding: 5px 10px;
   border-block-end: 2px solid var(--text-color, #000);
-
   background-color: var(--page-background-color, #fff);
-}
-
-.margin-corrects {
-  margin-block-end: 10px;
 }
 
 .card_image {
   position: relative;
   overflow: hidden;
-  border-block-end: 2px solid var(--text-color, #000);
 }
 
 .card_image-picture {
@@ -120,23 +109,21 @@
   z-index: 1;
   font-family: var(--accent-font-family), sans-serif;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 100%;
   opacity: 0.5;
   text-shadow: 0 0 1px var(--page-background-color, #fff);
   mix-blend-mode: hard-light;
 }
 
-@supports (-webkit-text-stroke: 1px var(--page-background-color)) or
-  (text-stroke: 1px var(--page-background-color)) {
+@supports (-webkit-text-stroke: 1px #fff) {
   .card_image-text {
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--page-background-color);
-    text-stroke: 1px var(--page-background-color);
+    -webkit-text-stroke: 1px var(--page-background-color, #fff);
   }
 }
 
 .card_content {
-  padding: 30px 25px 0 25px;
+  padding: 25px 30px 0 25px;
   display: flex;
   gap: 27px;
   flex-direction: column;
@@ -144,6 +131,7 @@
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0;
+  border-block-start: 2px solid var(--text-color, #000);
 }
 
 .card_footer {
@@ -152,7 +140,8 @@
   padding-block-start: 25px;
   padding-inline-end: 25px;
   padding-block-end: 25px;
-  align-items: center;
+  align-items: stretch;
+  gap: 5px;
 }
 
 .card__like-button {
@@ -160,14 +149,19 @@
   position: relative;
   background-color: transparent;
   border: 2px solid var(--text-color, #000);
-  min-inline-size: 130px;
-  max-block-size: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   color: var(--page-background-color, #fff);
   padding-block: 12.5px;
+  min-inline-size: 130px;
+  max-block-size: 38px;
+  transition: box-shadow 0.3s ease;
+}
+
+.padding-correct {
+  padding-block-start: 20px;
 }
 
 .button__text {
@@ -201,14 +195,14 @@
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--text-color);
+  box-shadow: 2px 2px 0px 0px var(--text-color, #000);
 }
 
 .card__icon-button {
   background-color: transparent;
   border: none;
-  padding-block-start: 5px;
-  padding-inline-end: 2px;
+  max-block-size: 38px;
+  padding: 0;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -237,6 +231,7 @@
   min-block-size: 55px;
   min-inline-size: 335px;
   z-index: 1;
+  transition: box-shadow 0.3s ease;
 }
 
 .button-icon {
@@ -281,6 +276,7 @@
   font-size: 14px;
   text-transform: uppercase;
   position: relative;
+  transition: box-shadow 0.3s ease;
 }
 
 .modal_wrapper {
@@ -297,13 +293,17 @@
   font-size: 14px;
 }
 
+.modal::backdrop {
+  opacity: 0.75;
+  background-color: var(--text-color, #000);
+}
+
 .filter-sepia {
   filter: sepia(50%);
 }
 
 .filter-contrast {
   filter: contrast(120%);
-  position: relative;
 }
 
 .filter-invert {
@@ -334,7 +334,7 @@
   filter: blur(1px);
 }
 
-@media (width <= 375px) {
+@media (width <=376px) {
   .button-save {
     flex-direction: column;
     min-block-size: 84px;
@@ -351,11 +351,19 @@
     padding: 30px 42px;
   }
 
-  .overlay {
-    min-block-size: 327px;
-  }
-
   .button-icon {
     width: 28px;
+  }
+
+  .margin-correctiful {
+    margin-block-start: 20px;
+  }
+
+  .margin-correct {
+    margin-block-start: 22px;
+  }
+
+  .padding-correct {
+    padding-block-start: 0;
   }
 }
